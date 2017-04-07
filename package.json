@@ -1,0 +1,11 @@
+{
+  "_comment" : "For distribution",
+  "name": "scandy-core-rn",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
