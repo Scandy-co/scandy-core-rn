@@ -12,15 +12,13 @@
 
 // 'use strict';
 
-// import React, {Components, PropTypes} from 'React';
-const React = require('React');
+import React from 'react';
 import {
   PanResponder,
   StyleSheet,
   View,
+  requireNativeComponent
 } from 'react-native';
-
-const requireNativeComponent = require('requireNativeComponent');
 const RCTScandyCoreVisualizer = requireNativeComponent('RCTScandyCoreVisualizer');
 
 export default class ScandyCoreVisualizer extends React.Component {
