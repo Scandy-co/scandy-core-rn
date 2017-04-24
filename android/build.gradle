@@ -1,0 +1,20 @@
+
+/****************************************************************************\
+ * Copyright (C) 2017 Scandy
+ *
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ *
+ \****************************************************************************/
+
+// For distribution.
+
+configurations.maybeCreate("default")
+def SCANDY_CORE_BUILD = "$System.env.SCANDY_CORE_BUILD"
+if( SCANDY_CORE_BUILD == "null" ) {
+  SCANDY_CORE_BUILD = "release"
+}
+
+artifacts.add("default", file("scandycoreandroid-${SCANDY_CORE_BUILD}.aar"))
