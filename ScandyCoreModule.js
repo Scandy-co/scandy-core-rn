@@ -59,11 +59,23 @@ export function resume() {
   return promise;
 }
 
+export function setLicense(license) {
+  const promise = new Promise((resolve, reject) => {
+    // TODO: @hcwiley you need to validate license setting.
+    ScandyCoreManager.setLicense(license);
+    resolve();
+    // } else {
+    //   reject();
+    // }
+  });
+  return promise;
+}
+
 export function initializeScanner(file_path = null) {
   const promise = new Promise((resolve, reject) => {
-    listener = ScandyCoreEvt.addListener('onScannerReady', function(success) {
+    listener = ScandyCoreEvt.addListener('onScannerReady', function(res) {
       listener.remove();
-      if (success) {
+      if (res.success) {
         resolve();
       } else {
         reject();
