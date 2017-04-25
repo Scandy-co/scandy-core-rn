@@ -24,6 +24,41 @@ export function onDisconnectedUSBScanner() {
   return promise;
 }
 
+/**
+ * Quits the current ScandyCore session. This stops scanners, tears down visualizers, and just generally shuts everything down. Good idea to call this explicitly when stopping your app.
+ * @return Promise Returns a promise that resolves on successful quitting and rejects if the quit fails for some reason.
+ */
+export function quit() {
+  const promise = new Promise((resolve, reject) => {
+    listener = ScandyCoreEvt.addListener('onFinishedQuit', function(success) {
+      listener.remove();
+      if (success) {
+        resolve();
+      } else {
+        reject();
+      }
+    });
+    ScandyCoreManager.quit();
+  });
+  return promise;
+}
+
+export function pause() {
+  const promise = new Promise((resolve, reject) => {
+    ScandyCoreManager.pause();
+    resolve();
+  });
+  return promise;
+}
+
+export function resume() {
+  const promise = new Promise((resolve, reject) => {
+    ScandyCoreManager.resume();
+    resolve();
+  });
+  return promise;
+}
+
 export function initializeScanner(file_path = null) {
   const promise = new Promise((resolve, reject) => {
     listener = ScandyCoreEvt.addListener('onScannerReady', function(success) {
