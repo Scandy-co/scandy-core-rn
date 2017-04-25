@@ -43,32 +43,16 @@ export function quit() {
   return promise;
 }
 
-export function pause() {
-  const promise = new Promise((resolve, reject) => {
-    ScandyCoreManager.pause();
-    resolve();
-  });
-  return promise;
+export async function pause() {
+  return await ScandyCoreManager.pause();
 }
 
-export function resume() {
-  const promise = new Promise((resolve, reject) => {
-    ScandyCoreManager.resume();
-    resolve();
-  });
-  return promise;
+export async function resume() {
+  return await ScandyCoreManager.resume();
 }
 
-export function setLicense(license) {
-  const promise = new Promise((resolve, reject) => {
-    // TODO: @hcwiley you need to validate license setting.
-    ScandyCoreManager.setLicense(license);
-    resolve();
-    // } else {
-    //   reject();
-    // }
-  });
-  return promise;
+export async function setLicense(license) {
+  return await ScandyCoreManager.setLicense(license);
 }
 
 export function initializeScanner(file_path = null) {
