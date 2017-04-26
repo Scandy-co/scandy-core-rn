@@ -152,7 +152,7 @@ export function getAvailableScanResolutions() {
 }
 
 
-export function setScanResolution(resolution) {
+export function setResolution(resolution) {
   const promise = new Promise( function(resolve, reject) {
     listener = ScandyCoreEvt.addListener('onFinishedSettingScanResolution', function(success) {
       listener.remove();
@@ -162,7 +162,7 @@ export function setScanResolution(resolution) {
         reject();
       }
     });
-    ScandyCoreManager.setScanResolution(resolution);
+    ScandyCoreManager.setResolution(resolution);
   });
   return promise;
 }
