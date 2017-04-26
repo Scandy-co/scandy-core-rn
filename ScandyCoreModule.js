@@ -247,3 +247,11 @@ export function saveMesh(file_path) {
   });
   return promise;
 }
+
+export async function getUseCases() {
+  return await ScandyCoreManager.getUseCases();
+}
+
+export async function setUseCase(use_case) {
+  return await ScandyCoreManager.setUseCase(use_case);
+}
