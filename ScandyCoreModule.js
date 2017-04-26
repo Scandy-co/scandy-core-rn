@@ -255,3 +255,7 @@ export async function getUseCases() {
 export async function setUseCase(use_case) {
   return await ScandyCoreManager.setUseCase(use_case);
 }
+
+export async function getScanState(){
+  return await ScandyCoreManager.getScanState();
+}
