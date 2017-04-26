@@ -198,6 +198,11 @@ export function setScanSize(size) {
   return promise;
 }
 
+/**
+ * Loads a mesh from the provided URL. That URL can be to a file on the internet or a file URL for a file on the device. This URL can be a .stl, .obj, .ply, or .zip file.
+ * @param  String url URL of the mesh to load.
+ * @return Promise Returns a promise that resolves on successful loading and rejects if the loading fails for some reason.
+ */
 export function loadMeshFromURL(url) {
   const promise = new Promise((resolve, reject) => {
     listener = ScandyCoreEvt.addListener('onFinishedLoadingMesh', function(success) {
