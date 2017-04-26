@@ -55,6 +55,10 @@ export async function setLicense(license) {
   return await ScandyCoreManager.setLicense(license);
 }
 
+export async function hasUSBScanner() {
+  return await ScandyCoreManager.hasUSBScanner();
+}
+
 export function initializeScanner(file_path = null) {
   const promise = new Promise((resolve, reject) => {
     listener = ScandyCoreEvt.addListener('onScannerReady', function(res) {
