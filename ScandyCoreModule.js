@@ -241,3 +241,9 @@ export async function setUseCase(use_case) {
 export async function getScanState(){
   return await ScandyCoreManager.getScanState();
 }
+
+export function onTrackingDidUpdate(callback){
+  listener = ScandyCoreEvt.addListener('onTrackingDidUpdate', function(res) {
+    callback(res);
+  });
+}
