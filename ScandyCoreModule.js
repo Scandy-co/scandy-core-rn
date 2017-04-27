@@ -168,34 +168,16 @@ export function setResolution(resolution) {
 }
 
 
-export function getScanSize() {
-  const promise = new Promise( function(resolve, reject) {
-    listener = ScandyCoreEvt.addListener('onFinishedGettingScanSize', function(size) {
-      listener.remove();
-      if (size) {
-        resolve(size);
-      } else {
-        reject();
-      }
-    });
-    ScandyCoreManager.getScanSize();
-  });
-  return promise;
+export async function getResolution() {
+  return await ScandyCoreManager.getResolution();
 }
 
-export function setScanSize(size) {
-  const promise = new Promise( function(resolve, reject) {
-    listener = ScandyCoreEvt.addListener('onFinishedSettingScanSize', function(success) {
-      listener.remove();
-      if (success) {
-        resolve();
-      } else {
-        reject();
-      }
-    });
-    ScandyCoreManager.setScanSize(size);
-  });
-  return promise;
+export async function getScanSize() {
+  return await ScandyCoreManager.getScanSize();
+}
+
+export async function setScanSize(size) {
+  return await ScandyCoreManager.setScanSize(size);
 }
 
 /**
